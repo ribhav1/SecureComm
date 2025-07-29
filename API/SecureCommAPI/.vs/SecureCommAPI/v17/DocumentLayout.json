@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\API\\SecureCommAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2D129C0D-8C53-48EE-8972-9F952F6672DF}|SecureCommAPI\\SecureCommAPI.csproj|c:\\users\\ribha\\downloads\\c# solutions\\securecomm\\api\\securecommapi\\securecommapi\\controllers\\roomcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D129C0D-8C53-48EE-8972-9F952F6672DF}|SecureCommAPI\\SecureCommAPI.csproj|solutionrelative:securecommapi\\controllers\\roomcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D129C0D-8C53-48EE-8972-9F952F6672DF}|SecureCommAPI\\SecureCommAPI.csproj|c:\\users\\ribha\\downloads\\c# solutions\\securecomm\\api\\securecommapi\\securecommapi\\controllers\\messagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D129C0D-8C53-48EE-8972-9F952F6672DF}|SecureCommAPI\\SecureCommAPI.csproj|solutionrelative:securecommapi\\controllers\\messagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D129C0D-8C53-48EE-8972-9F952F6672DF}|SecureCommAPI\\SecureCommAPI.csproj|c:\\users\\ribha\\downloads\\c# solutions\\securecomm\\api\\securecommapi\\securecommapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D129C0D-8C53-48EE-8972-9F952F6672DF}|SecureCommAPI\\SecureCommAPI.csproj|solutionrelative:securecommapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D129C0D-8C53-48EE-8972-9F952F6672DF}|SecureCommAPI\\SecureCommAPI.csproj|c:\\users\\ribha\\downloads\\c# solutions\\securecomm\\api\\securecommapi\\securecommapi\\models\\messagemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D129C0D-8C53-48EE-8972-9F952F6672DF}|SecureCommAPI\\SecureCommAPI.csproj|solutionrelative:securecommapi\\models\\messagemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D129C0D-8C53-48EE-8972-9F952F6672DF}|SecureCommAPI\\SecureCommAPI.csproj|c:\\users\\ribha\\downloads\\c# solutions\\securecomm\\api\\securecommapi\\securecommapi\\models\\roommodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D129C0D-8C53-48EE-8972-9F952F6672DF}|SecureCommAPI\\SecureCommAPI.csproj|solutionrelative:securecommapi\\models\\roommodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D129C0D-8C53-48EE-8972-9F952F6672DF}|SecureCommAPI\\SecureCommAPI.csproj|c:\\users\\ribha\\downloads\\c# solutions\\securecomm\\api\\securecommapi\\securecommapi\\models\\securecommdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D129C0D-8C53-48EE-8972-9F952F6672DF}|SecureCommAPI\\SecureCommAPI.csproj|solutionrelative:securecommapi\\models\\securecommdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 259,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RoomController.cs",
+              "DocumentMoniker": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\API\\SecureCommAPI\\SecureCommAPI\\Controllers\\RoomController.cs",
+              "RelativeDocumentMoniker": "SecureCommAPI\\Controllers\\RoomController.cs",
+              "ToolTip": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\API\\SecureCommAPI\\SecureCommAPI\\Controllers\\RoomController.cs",
+              "RelativeToolTip": "SecureCommAPI\\Controllers\\RoomController.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAwwB4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T16:53:38.597Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MessageController.cs",
+              "DocumentMoniker": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\API\\SecureCommAPI\\SecureCommAPI\\Controllers\\MessageController.cs",
+              "RelativeDocumentMoniker": "SecureCommAPI\\Controllers\\MessageController.cs",
+              "ToolTip": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\API\\SecureCommAPI\\SecureCommAPI\\Controllers\\MessageController.cs",
+              "RelativeToolTip": "SecureCommAPI\\Controllers\\MessageController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAwwCoAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T16:53:28.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SecureCommDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\API\\SecureCommAPI\\SecureCommAPI\\Models\\SecureCommDbContext.cs",
+              "RelativeDocumentMoniker": "SecureCommAPI\\Models\\SecureCommDbContext.cs",
+              "ToolTip": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\API\\SecureCommAPI\\SecureCommAPI\\Models\\SecureCommDbContext.cs",
+              "RelativeToolTip": "SecureCommAPI\\Models\\SecureCommDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T16:53:07.496Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RoomModel.cs",
+              "DocumentMoniker": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\API\\SecureCommAPI\\SecureCommAPI\\Models\\RoomModel.cs",
+              "RelativeDocumentMoniker": "SecureCommAPI\\Models\\RoomModel.cs",
+              "ToolTip": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\API\\SecureCommAPI\\SecureCommAPI\\Models\\RoomModel.cs",
+              "RelativeToolTip": "SecureCommAPI\\Models\\RoomModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T16:52:41.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MessageModel.cs",
+              "DocumentMoniker": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\API\\SecureCommAPI\\SecureCommAPI\\Models\\MessageModel.cs",
+              "RelativeDocumentMoniker": "SecureCommAPI\\Models\\MessageModel.cs",
+              "ToolTip": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\API\\SecureCommAPI\\SecureCommAPI\\Models\\MessageModel.cs",
+              "RelativeToolTip": "SecureCommAPI\\Models\\MessageModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T16:52:24.978Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\API\\SecureCommAPI\\SecureCommAPI\\Program.cs",
+              "RelativeDocumentMoniker": "SecureCommAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\API\\SecureCommAPI\\SecureCommAPI\\Program.cs",
+              "RelativeToolTip": "SecureCommAPI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T16:51:49.544Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

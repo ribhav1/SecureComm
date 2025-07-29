@@ -1,0 +1,147 @@
+[
+  {
+    "ContainingType": "SecureCommAPI.Controllers.MessageController",
+    "Method": "GetMessages",
+    "RelativePath": "Message/getMessages/{room_id}/{lastCheckedTime}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "room_id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "lastCheckedTime",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[SecureCommAPI.Models.MessageModel, SecureCommAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SecureCommAPI.Controllers.MessageController",
+    "Method": "SendMessage",
+    "RelativePath": "Message/send/{room_id}/{user_id}/{message_content}/{color}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "room_id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "user_id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "message_content",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "color",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SecureCommAPI.Controllers.RoomController",
+    "Method": "GetRoomById",
+    "RelativePath": "Room/getRoom/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SecureCommAPI.Models.RoomModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SecureCommAPI.Controllers.RoomController",
+    "Method": "ValidateRoomPasswordById",
+    "RelativePath": "Room/validatePassword/{id}/{password}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SecureCommAPI.Controllers.RoomController",
+    "Method": "ValidateRoomById",
+    "RelativePath": "Room/validateRoom/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Boolean",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

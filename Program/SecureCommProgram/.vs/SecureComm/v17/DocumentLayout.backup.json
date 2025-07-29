@@ -1,0 +1,86 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\ribha\\downloads\\c# solutions\\securecomm\\program\\securecommprogram\\securecomm\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\ribha\\downloads\\c# solutions\\securecomm\\program\\securecommprogram\\securecomm\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\ribha\\downloads\\c# solutions\\securecomm\\program\\securecommprogram\\securecomm\\models\\messagemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\models\\messagemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\ribha\\downloads\\c# solutions\\securecomm\\program\\securecommprogram\\securecomm\\models\\roommodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\models\\roommodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 259,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RoomModel.cs",
+              "DocumentMoniker": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Models\\RoomModel.cs",
+              "RelativeDocumentMoniker": "SecureComm\\Models\\RoomModel.cs",
+              "ToolTip": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Models\\RoomModel.cs",
+              "RelativeToolTip": "SecureComm\\Models\\RoomModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T17:44:39.428Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MessageModel.cs",
+              "DocumentMoniker": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Models\\MessageModel.cs",
+              "RelativeDocumentMoniker": "SecureComm\\Models\\MessageModel.cs",
+              "ToolTip": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Models\\MessageModel.cs",
+              "RelativeToolTip": "SecureComm\\Models\\MessageModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T17:44:38.697Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ApiClient.cs",
+              "DocumentMoniker": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\ApiClient.cs",
+              "RelativeDocumentMoniker": "SecureComm\\ApiClient.cs",
+              "ToolTip": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\ApiClient.cs",
+              "RelativeToolTip": "SecureComm\\ApiClient.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T16:43:30.617Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Program.cs",
+              "RelativeDocumentMoniker": "SecureComm\\Program.cs",
+              "ToolTip": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Program.cs",
+              "RelativeToolTip": "SecureComm\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T03:43:41.289Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
