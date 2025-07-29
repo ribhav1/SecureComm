@@ -26,3 +26,4 @@ C:\Users\ribha\Downloads\C# Solutions\SecureComm\Program\SecureCommProgram\Secur
 C:\Users\ribha\Downloads\C# Solutions\SecureComm\Program\SecureCommProgram\SecureComm\obj\Debug\net9.0\SecureComm.pdb
 C:\Users\ribha\Downloads\C# Solutions\SecureComm\Program\SecureCommProgram\SecureComm\obj\Debug\net9.0\SecureComm.genruntimeconfig.cache
 C:\Users\ribha\Downloads\C# Solutions\SecureComm\Program\SecureCommProgram\SecureComm\obj\Debug\net9.0\ref\SecureComm.dll
+C:\Users\ribha\Downloads\C# Solutions\SecureComm\Program\SecureCommProgram\SecureComm\obj\Debug\net9.0\SecureComm.sourcelink.json

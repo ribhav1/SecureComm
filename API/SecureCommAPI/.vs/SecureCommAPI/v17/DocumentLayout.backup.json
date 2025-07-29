@@ -44,7 +44,7 @@
               "RelativeDocumentMoniker": "SecureCommAPI\\Controllers\\RoomController.cs",
               "ToolTip": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\API\\SecureCommAPI\\SecureCommAPI\\Controllers\\RoomController.cs",
               "RelativeToolTip": "SecureCommAPI\\Controllers\\RoomController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAwwB4AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-28T16:53:38.597Z",
               "EditorCaption": ""
@@ -57,10 +57,9 @@
               "RelativeDocumentMoniker": "SecureCommAPI\\Controllers\\MessageController.cs",
               "ToolTip": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\API\\SecureCommAPI\\SecureCommAPI\\Controllers\\MessageController.cs",
               "RelativeToolTip": "SecureCommAPI\\Controllers\\MessageController.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAABwAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAwwCoAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T16:53:28.649Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-28T16:53:28.649Z"
             },
             {
               "$type": "Document",
@@ -72,8 +71,7 @@
               "RelativeToolTip": "SecureCommAPI\\Models\\SecureCommDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T16:53:07.496Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-28T16:53:07.496Z"
             },
             {
               "$type": "Document",
@@ -85,8 +83,7 @@
               "RelativeToolTip": "SecureCommAPI\\Models\\RoomModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T16:52:41.106Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-28T16:52:41.106Z"
             },
             {
               "$type": "Document",
@@ -98,8 +95,7 @@
               "RelativeToolTip": "SecureCommAPI\\Models\\MessageModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T16:52:24.978Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-28T16:52:24.978Z"
             },
             {
               "$type": "Document",
@@ -109,10 +105,9 @@
               "RelativeDocumentMoniker": "SecureCommAPI\\Program.cs",
               "ToolTip": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\API\\SecureCommAPI\\SecureCommAPI\\Program.cs",
               "RelativeToolTip": "SecureCommAPI\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-28T16:51:49.544Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-28T16:51:49.544Z"
             }
           ]
         }
