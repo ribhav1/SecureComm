@@ -17,12 +17,17 @@ public class MessageController : ControllerBase
         db_context = context;
     }
 
-    [HttpGet("getMessages/{room_id}/{lastCheckedTime}")]
-    public async Task<List<MessageModel>> GetMessages(Guid room_id, DateTime lastCheckedTime)
+    [HttpGet("getMessages/{roomGUID}/{lastCheckedTime}")]
+    public async Task<List<MessageModel>> GetMessages(Guid roomGUID, DateTime lastCheckedTime, Guid? directRecepientUserId)
     {
         try
         {
-            return await db_context.Messages.Where(message => (message.RoomId == room_id && message.CreatedAt > lastCheckedTime)).ToListAsync();
+            // only return message if:
+            // it is the right room
+            // it was sent after the last time messages were returned from the db
+            // -> if there is no direct recipient specified in the query, then if the direct reciepient property is null
+            // -> if there is a direct reciepent specified in the query, then if the the direct recipeint property matches the query param
+            return await db_context.Messages.Where(message => (message.RoomId == roomGUID && message.CreatedAt > lastCheckedTime && message.DirectlyTo == (directRecepientUserId == null ? null : directRecepientUserId))).ToListAsync();
         }
         catch (Exception e)
         {
@@ -31,17 +36,22 @@ public class MessageController : ControllerBase
         }
     }
 
-    [HttpPost("send/{room_id}/{user_id}/{message_content}/{color}")]
-    public async Task<IActionResult> SendMessage(Guid room_id, string user_id, string message_content, string color)
+    [HttpPost("send/{roomGUID}/{sentByUserId}/{username}/{messageContent}/{color}")]
+    public async Task<IActionResult> SendMessage(Guid roomGUID, Guid sentByUserId, string username, string messageContent, Guid? directlyToUserId, string color)
     {
         try
         {
+            // create a message in the db with all the params specified in the query, and:
+            // -> if there is no direct recepient specified, then set the directly to property as null
+            // -> if there is a direct recepient specified, then set the directlt to property as the direct recepient query param
             MessageModel message = new MessageModel
             {
                 Id = Guid.NewGuid(),
-                RoomId = room_id,
-                UserId = user_id,
-                Content = message_content,
+                RoomId = roomGUID,
+                UserId = sentByUserId,
+                Username = username,
+                Content = messageContent,
+                DirectlyTo = directlyToUserId == null ? null : directlyToUserId,
                 Color = color,
                 CreatedAt = DateTime.UtcNow,
             };
@@ -53,6 +63,7 @@ public class MessageController : ControllerBase
         catch (Exception e)
         {
             Console.WriteLine("EXCEPTION CAUGHT: " + e);
+
             return BadRequest("Failed");
         }
 

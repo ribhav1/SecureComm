@@ -2,13 +2,13 @@
   {
     "ContainingType": "SecureCommAPI.Controllers.MessageController",
     "Method": "GetMessages",
-    "RelativePath": "Message/getMessages/{room_id}/{lastCheckedTime}",
+    "RelativePath": "Message/getMessages/{roomGUID}/{lastCheckedTime}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "room_id",
+        "Name": "roomGUID",
         "Type": "System.Guid",
         "IsRequired": true
       },
@@ -16,6 +16,11 @@
         "Name": "lastCheckedTime",
         "Type": "System.DateTime",
         "IsRequired": true
+      },
+      {
+        "Name": "directRecepientUserId",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -33,28 +38,54 @@
   {
     "ContainingType": "SecureCommAPI.Controllers.MessageController",
     "Method": "SendMessage",
-    "RelativePath": "Message/send/{room_id}/{user_id}/{message_content}/{color}",
+    "RelativePath": "Message/send/{roomGUID}/{sentByUserId}/{username}/{messageContent}/{color}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "room_id",
+        "Name": "roomGUID",
         "Type": "System.Guid",
         "IsRequired": true
       },
       {
-        "Name": "user_id",
+        "Name": "sentByUserId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "username",
         "Type": "System.String",
         "IsRequired": true
       },
       {
-        "Name": "message_content",
+        "Name": "messageContent",
         "Type": "System.String",
         "IsRequired": true
+      },
+      {
+        "Name": "directlyToUserId",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
       },
       {
         "Name": "color",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SecureCommAPI.Controllers.RoomController",
+    "Method": "CreateRoom",
+    "RelativePath": "Room/createRoom/{password}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "password",
         "Type": "System.String",
         "IsRequired": true
       }

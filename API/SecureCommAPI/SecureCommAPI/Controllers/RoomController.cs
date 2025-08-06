@@ -61,4 +61,29 @@ public class RoomController : ControllerBase
             return false;
         }
     }
+
+    [HttpPost("createRoom/{password}")]
+    public async Task<IActionResult> CreateRoom(string password)
+    {
+        try
+        {
+            RoomModel room = new RoomModel
+            {
+                Id = Guid.NewGuid(),
+                Password = password,
+                CreatedAt = DateTime.UtcNow
+            };
+            db_context.Rooms.Add(room);
+            await db_context.SaveChangesAsync();
+
+            return Ok(room);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("EXCEPTION CAUGHT: " + e);
+
+            return BadRequest("Failed");
+        }
+    }
+
 }

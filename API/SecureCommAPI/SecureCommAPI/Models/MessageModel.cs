@@ -14,10 +14,16 @@ public class MessageModel
     public Guid RoomId { get; set; }
 
     [Column("user_id")]
-    public string UserId { get; set; }
+    public Guid UserId { get; set; }
+
+    [Column("username")]
+    public string Username { get; set; }
 
     [Column("content")]
     public string Content { get; set; }
+
+    [Column("directly_to")]
+    public Guid? DirectlyTo { get; set; }
 
     [Column("color")]
     public string Color { get; set; }
