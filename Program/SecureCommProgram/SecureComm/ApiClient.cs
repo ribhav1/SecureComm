@@ -1,5 +1,6 @@
 ﻿using SecureCommAPI.Models;
 using System.Net.Http.Json;
+using System.Net.NetworkInformation;
 
 namespace SecureComm
 {
@@ -10,14 +11,29 @@ namespace SecureComm
             BaseAddress = new Uri("https://localhost:7117")
         };
 
+        // Room route functions
         public static async Task<RoomModel> GetRoomById(Guid id)
         {
-            return await client.GetFromJsonAsync<RoomModel>($"/Room/getRoom/{id}");
+            try
+            {
+                return await client.GetFromJsonAsync<RoomModel>($"/Room/getRoom/{id}");
+            }
+            catch (Exception e)
+            {
+                return new RoomModel();
+            }
         }
 
         public static async Task<bool> ValidateRoomById(Guid id)
         {
-            return await client.GetFromJsonAsync<bool>($"/Room/validateRoom/{id}");
+            try
+            {
+                return await client.GetFromJsonAsync<bool>($"/Room/validateRoom/{id}");
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
 
         public static async Task<bool> ValidateRoomPassword(Guid id, string password)
@@ -33,6 +49,20 @@ namespace SecureComm
             
         }
 
+        public static async Task<RoomModel> CreateRoom(string password)
+        {
+            HttpResponseMessage response = await client.PostAsync($"Room/createRoom/{password}", null);
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadFromJsonAsync<RoomModel>();
+            }
+            else
+            {
+                return new RoomModel();
+            }
+        }
+
+        // Message route functions
         public static async Task<List<MessageModel>> GetMessages(Guid roomGUID, DateTime lastTime)
         {
             try
@@ -47,9 +77,9 @@ namespace SecureComm
             }
         }
 
-        public static async Task<MessageModel> SendMessage(Guid room_id, string user_id, string content, string color)
+        public static async Task<MessageModel> SendMessage(Guid roomGUID, Guid userId, string username, string content, string color)
         {
-            HttpResponseMessage response = await client.PostAsync($"/Message/send/{room_id}/{user_id}/{content}/{color}", null);
+            HttpResponseMessage response = await client.PostAsync($"/Message/send/{roomGUID}/{userId}/{username}/{content}/{color}", null);
             if (response.IsSuccessStatusCode)
             {
                 return await response.Content.ReadFromJsonAsync<MessageModel>();

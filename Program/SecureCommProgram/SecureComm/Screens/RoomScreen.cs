@@ -10,7 +10,8 @@ namespace SecureComm.Screens
     class RoomScreen : IScreen
     {
         private Guid roomId = new Guid();
-        private string userId = "";
+        private string username = "";
+        private Guid userId = Guid.Empty;
 
         private StringBuilder userInputBuffer = new StringBuilder();
         private int outputLineIndex = 0;
@@ -18,18 +19,19 @@ namespace SecureComm.Screens
 
         private bool inRoomScreen = true;
 
-        public RoomScreen(Guid _roomId, string _userId)
+        public RoomScreen(Guid _roomId, string _username, Guid _userId)
         {
             roomId = _roomId;
+            username = _username;
             userId = _userId;
         }
 
         public async Task DrawScreen(ScreenManager screenManager)
         {
-            await enterChatRoom(roomId, userId, screenManager);
+            await enterChatRoom(roomId, userId, username, screenManager);
         }
 
-        async Task enterChatRoom(Guid roomGUID, string userID, ScreenManager screenManager)
+        async Task enterChatRoom(Guid roomGUID, Guid userID, string username, ScreenManager screenManager)
         {
 
             // Start recieving messages in background thread
@@ -38,7 +40,7 @@ namespace SecureComm.Screens
             messageReciever.Start();
 
             // Start user input loop
-            await HandleUserInput(roomGUID, userID, screenManager);
+            await HandleUserInput(roomGUID, userID, username, screenManager);
         }
 
         async Task RecieveMessages(Guid roomGUID)
@@ -51,8 +53,7 @@ namespace SecureComm.Screens
 
                 foreach (MessageModel message in newMessages)
                 {
-                    //Console.WriteLine(message.Content);
-                    WriteMessage(message.Content, message.UserId);
+                    WriteMessage(message.Content, message.Username);
                 }
 
                 // Update lastTime to max timestamp received, or keep as is
@@ -63,7 +64,7 @@ namespace SecureComm.Screens
             }
         }
 
-        void WriteMessage(string message, string userID)
+        void WriteMessage(string message, string username)
         {
             // Save current input and cursor position
             int cursorTop = outputLineIndex; // Cursor Row Position
@@ -74,8 +75,8 @@ namespace SecureComm.Screens
             //Move to output line and print message
             Console.SetCursorPosition(0, cursorTop);
             Console.Write("\r" + new string(' ', Console.WindowWidth) + "\r");
-            Console.SetCursorPosition(12 - (userID.Length + 4), cursorTop);
-            Console.Write($"[{userID}]: ");
+            Console.SetCursorPosition(12 - (username.Length + 4), cursorTop);
+            Console.Write($"[{username}]: ");
             Console.SetCursorPosition(12, cursorTop); // Stay at current row but move right to line up output
             Console.WriteLine(message);
 
@@ -89,7 +90,7 @@ namespace SecureComm.Screens
 
         }
 
-        async Task HandleUserInput(Guid roomGUID, string userID, ScreenManager screenManager)
+        async Task HandleUserInput(Guid roomGUID, Guid userID, string username, ScreenManager screenManager)
         {
 
             Console.SetCursorPosition(0, inputLineIndex);
@@ -111,11 +112,11 @@ namespace SecureComm.Screens
                         break;
                     }
 
-                    MessageModel userMessage = await ApiClient.SendMessage(roomGUID, userID, userInput, "Red");
+                    MessageModel userMessage = await ApiClient.SendMessage(roomGUID, userID, username, userInput, "Red");
 
                     if (userMessage == null)
                     {
-                        Console.WriteLine("Failed to send message");
+                        WriteMessage("Failed to send message", "SYSTEM");
                         continue;
                     }
 

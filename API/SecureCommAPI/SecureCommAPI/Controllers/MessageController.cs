@@ -32,6 +32,7 @@ public class MessageController : ControllerBase
         catch (Exception e)
         {
             Console.WriteLine("EXCEPTION CAUGHT: " + e);
+
             return new List<MessageModel>();
         }
     }

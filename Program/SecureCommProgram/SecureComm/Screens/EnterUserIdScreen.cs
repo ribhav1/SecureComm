@@ -19,15 +19,15 @@ namespace SecureComm.Screens
         {
             Console.WriteLine("Please enter a display name.");
             Console.WriteLine("It must be at least 3 characters but no more than 8");
-            string inputUserId = Console.ReadLine();
+            string inputUsername = Console.ReadLine();
 
-            while (inputUserId.Length < 3 || inputUserId.Length > 8)
+            while (inputUsername.Length < 3 || inputUsername.Length > 8)
             {
                 Console.WriteLine("Does not meet requirements:");
-                inputUserId = Console.ReadLine();
+                inputUsername = Console.ReadLine();
             }
 
-            screenManager.Navigate(new RoomScreen(roomId, inputUserId));
+            screenManager.Navigate(new RoomScreen(roomId, inputUsername, new Guid()));
             return;
         }
 

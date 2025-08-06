@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="C:\Users\ribha\Downloads\C# Solutions\SecureComm\Program\SecureCommProgram\SecureComm\Program.cs" Link="Program.cs" />
+    <Compile Include="C:\Users\turtl\Downloads\SecureComm\Program\SecureCommProgram\SecureComm\Program.cs" Link="Program.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -26,7 +26,7 @@ public class RoomController : ControllerBase
         {
             Console.WriteLine("EXCEPTION CAUGHT: " + e.Message);
 
-            return null;
+            return new RoomModel();
         }
     }
 
