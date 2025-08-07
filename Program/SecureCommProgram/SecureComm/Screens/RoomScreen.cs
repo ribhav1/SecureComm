@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
 namespace SecureComm.Screens
 {
@@ -19,27 +20,86 @@ namespace SecureComm.Screens
 
         private bool inRoomScreen = true;
 
-        public RoomScreen(Guid _roomId, string _username, Guid _userId)
+        private bool isHost;
+
+        private RSAParameters userPublicKey;
+        private RSAParameters userPrivateKey;
+
+        private RSAParameters sessionPublicKey;
+        private RSAParameters sessionPrivateKey;
+
+        public RoomScreen(Guid _roomId, string _username, Guid _userId, bool _isHost)
         {
             roomId = _roomId;
             username = _username;
             userId = _userId;
+            isHost = _isHost;
+
+            var userCSP = new RSACryptoServiceProvider(2048);
+            userPublicKey = userCSP.ExportParameters(false); // set user public key
+            userPrivateKey = userCSP.ExportParameters(true); // set user private key
+
+            if (isHost)
+            {
+                var sessionCSP = new RSACryptoServiceProvider(2048);
+                sessionPublicKey = sessionCSP.ExportParameters(false); // if host, set session public key
+                sessionPrivateKey = sessionCSP.ExportParameters(true); // if host, set session private key
+            }
+
         }
 
+        int count = 0;
         public async Task DrawScreen(ScreenManager screenManager)
         {
+            // make sure this function is only called once
+            if (count != 0)
+            {
+                return;
+            }
+
+            // add host as first connected user so clients can query it for session key
+            if (isHost)
+            {
+
+            }
+
             await enterChatRoom(roomId, userId, username, screenManager);
+            count++;
         }
 
         async Task enterChatRoom(Guid roomGUID, Guid userID, string username, ScreenManager screenManager)
         {
 
-            // Start recieving messages in background thread
+            //if client, retrieve session key from connected users
+            if (!isHost)
+            {
+                while (sessionPublicKey.Modulus == null && sessionPrivateKey.Modulus == null)
+                {
+                    // -> query the connected users column in the rooms table
+                    
+                    // -> get the first, or any, user
+                    //   -> this means it is important that a user can only become a "connected user"
+                    //      if they have retrieved the session key in the first place. This is also why
+                    //      is is important that the host becomes the first connected user. Now, even if
+                    //      the host leaves then there will be other "connected users" that can provide
+                    //      the session key
+                    
+                    // -> send a direct message to that user requesting a session key
+                    
+                    // -> the user will send a direct message back with the session key as response
+                    
+                    // -> set the session key variables
+                    
+                    // -> continue
+                }
+            }
+
+            // start recieving messages in background thread
             Thread messageReciever = new Thread(() => RecieveMessages(roomGUID));
             messageReciever.IsBackground = true;
             messageReciever.Start();
 
-            // Start user input loop
+            // start user input loop
             await HandleUserInput(roomGUID, userID, username, screenManager);
         }
 
@@ -112,7 +172,14 @@ namespace SecureComm.Screens
                         break;
                     }
 
-                    MessageModel userMessage = await ApiClient.SendMessage(roomGUID, userID, username, userInput, "Red");
+                    var messageEncryptCSP = new RSACryptoServiceProvider();
+                    messageEncryptCSP.ImportParameters(sessionPublicKey);
+
+                    var userInputBytes = System.Text.Encoding.Unicode.GetBytes(userInput);
+                    var userInputEncryptedBytes = messageEncryptCSP.Encrypt(userInputBytes, false);
+                    var userInputEncryptedString = Convert.ToBase64String(userInputEncryptedBytes);
+
+                    MessageModel userMessage = await ApiClient.SendMessage(roomGUID, userID, username, userInputEncryptedString, null, "Red");
 
                     if (userMessage == null)
                     {

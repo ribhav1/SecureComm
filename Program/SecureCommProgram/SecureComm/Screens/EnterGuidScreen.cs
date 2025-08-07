@@ -12,7 +12,14 @@ namespace SecureComm.Screens
 
         public async Task DrawScreen(ScreenManager screenManager)
         {
-            Console.Clear();
+            Console.WriteLine("Would you like to 'host' or 'join' a room. Enter the appropiate aforementioned keyword:");
+            string isHostInput = Console.ReadLine();
+
+            if (isHostInput.Trim().ToLower() == "host")
+            {
+                screenManager.Navigate(new EnterPasswordScreen(Guid.NewGuid(), true));
+                return;
+            }
 
             Console.WriteLine("Please enter the ID of the room you would like to connect to:");
             roomId = CheckForValidGUID(Console.ReadLine());
@@ -25,7 +32,7 @@ namespace SecureComm.Screens
                 isValidRoom = await ApiClient.ValidateRoomById(roomId);
             }
 
-            screenManager.Navigate(new EnterPasswordScreen(roomId));
+            screenManager.Navigate(new EnterPasswordScreen(roomId, false));
             return;
         }
 

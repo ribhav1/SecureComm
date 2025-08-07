@@ -49,9 +49,9 @@ namespace SecureComm
             
         }
 
-        public static async Task<RoomModel> CreateRoom(string password)
+        public static async Task<RoomModel> CreateRoom(Guid roomGUID, string password)
         {
-            HttpResponseMessage response = await client.PostAsync($"Room/createRoom/{password}", null);
+            HttpResponseMessage response = await client.PostAsync($"Room/createRoom/{roomGUID}/{password}", null);
             if (response.IsSuccessStatusCode)
             {
                 return await response.Content.ReadFromJsonAsync<RoomModel>();
@@ -77,9 +77,11 @@ namespace SecureComm
             }
         }
 
-        public static async Task<MessageModel> SendMessage(Guid roomGUID, Guid userId, string username, string content, string color)
+        public static async Task<MessageModel> SendMessage(Guid roomGUID, Guid userId, string username, string content, Guid? directlyToUserId, string color)
         {
-            HttpResponseMessage response = await client.PostAsync($"/Message/send/{roomGUID}/{userId}/{username}/{content}/{color}", null);
+
+            string encodedContent = Uri.EscapeDataString(content);
+            HttpResponseMessage response = await client.PostAsync($"/Message/send/{roomGUID}/{userId}/{username}/{encodedContent}/{color}?directlyToUserId={directlyToUserId}", null);
             if (response.IsSuccessStatusCode)
             {
                 return await response.Content.ReadFromJsonAsync<MessageModel>();

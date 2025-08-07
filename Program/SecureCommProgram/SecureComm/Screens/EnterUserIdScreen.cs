@@ -8,11 +8,13 @@ namespace SecureComm.Screens
 {
     class EnterUserIdScreen : IScreen
     {
-        private Guid roomId = new Guid();
+        private Guid roomId;
+        private bool isHost;
 
-        public EnterUserIdScreen(Guid _roomId)
+        public EnterUserIdScreen(Guid _roomId, bool _isHost)
         {
             roomId = _roomId;
+            isHost = _isHost;
         }
 
         public async Task DrawScreen(ScreenManager screenManager)
@@ -27,7 +29,7 @@ namespace SecureComm.Screens
                 inputUsername = Console.ReadLine();
             }
 
-            screenManager.Navigate(new RoomScreen(roomId, inputUsername, new Guid()));
+            screenManager.Navigate(new RoomScreen(roomId, inputUsername, Guid.NewGuid(), isHost));
             return;
         }
 

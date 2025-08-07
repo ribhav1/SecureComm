@@ -7,16 +7,32 @@
       "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\screens\\roomscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\turtl\\downloads\\securecomm\\program\\securecommprogram\\securecomm\\screens\\enteruseridscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\screens\\enteruseridscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\turtl\\downloads\\securecomm\\program\\securecommprogram\\securecomm\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\turtl\\downloads\\securecomm\\program\\securecommprogram\\securecomm\\models\\messagemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\models\\messagemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\turtl\\downloads\\securecomm\\program\\securecommprogram\\securecomm\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\turtl\\downloads\\securecomm\\program\\securecommprogram\\securecomm\\screens\\enteruseridscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\screens\\enteruseridscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\turtl\\downloads\\securecomm\\program\\securecommprogram\\securecomm\\screenmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\screenmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\turtl\\downloads\\securecomm\\program\\securecommprogram\\securecomm\\screens\\enterpasswordscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\screens\\enterpasswordscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\turtl\\downloads\\securecomm\\program\\securecommprogram\\securecomm\\screens\\enterguidscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\screens\\enterguidscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\turtl\\downloads\\securecomm\\program\\securecommprogram\\securecomm\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,8 +42,60 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ScreenManager.cs",
+              "DocumentMoniker": "C:\\Users\\turtl\\Downloads\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\ScreenManager.cs",
+              "RelativeDocumentMoniker": "SecureComm\\ScreenManager.cs",
+              "ToolTip": "C:\\Users\\turtl\\Downloads\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\ScreenManager.cs",
+              "RelativeToolTip": "SecureComm\\ScreenManager.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T22:48:23.413Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\turtl\\Downloads\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Program.cs",
+              "RelativeDocumentMoniker": "SecureComm\\Program.cs",
+              "ToolTip": "C:\\Users\\turtl\\Downloads\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Program.cs",
+              "RelativeToolTip": "SecureComm\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T22:48:22.824Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EnterGuidScreen.cs",
+              "DocumentMoniker": "C:\\Users\\turtl\\Downloads\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Screens\\EnterGuidScreen.cs",
+              "RelativeDocumentMoniker": "SecureComm\\Screens\\EnterGuidScreen.cs",
+              "ToolTip": "C:\\Users\\turtl\\Downloads\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Screens\\EnterGuidScreen.cs",
+              "RelativeToolTip": "SecureComm\\Screens\\EnterGuidScreen.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T22:47:43.95Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EnterPasswordScreen.cs",
+              "DocumentMoniker": "C:\\Users\\turtl\\Downloads\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Screens\\EnterPasswordScreen.cs",
+              "RelativeDocumentMoniker": "SecureComm\\Screens\\EnterPasswordScreen.cs",
+              "ToolTip": "C:\\Users\\turtl\\Downloads\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Screens\\EnterPasswordScreen.cs",
+              "RelativeToolTip": "SecureComm\\Screens\\EnterPasswordScreen.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T22:43:07.304Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -43,13 +111,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "EnterUserIdScreen.cs",
               "DocumentMoniker": "C:\\Users\\turtl\\Downloads\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Screens\\EnterUserIdScreen.cs",
               "RelativeDocumentMoniker": "SecureComm\\Screens\\EnterUserIdScreen.cs",
               "ToolTip": "C:\\Users\\turtl\\Downloads\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Screens\\EnterUserIdScreen.cs",
               "RelativeToolTip": "SecureComm\\Screens\\EnterUserIdScreen.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAABIAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-06T18:37:46.618Z",
               "EditorCaption": ""
@@ -62,20 +130,20 @@
               "RelativeDocumentMoniker": "SecureComm\\Screens\\RoomScreen.cs",
               "ToolTip": "C:\\Users\\turtl\\Downloads\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Screens\\RoomScreen.cs",
               "RelativeToolTip": "SecureComm\\Screens\\RoomScreen.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAABwAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAJAAAAAAAAAAAAAcwJ8AAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-06T18:35:31.883Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "ApiClient.cs",
               "DocumentMoniker": "C:\\Users\\turtl\\Downloads\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\ApiClient.cs",
               "RelativeDocumentMoniker": "SecureComm\\ApiClient.cs",
               "ToolTip": "C:\\Users\\turtl\\Downloads\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\ApiClient.cs",
               "RelativeToolTip": "SecureComm\\ApiClient.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAAAFEAAABPAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAcwFIAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-06T18:29:35.034Z",
               "EditorCaption": ""

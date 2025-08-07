@@ -79,11 +79,16 @@
   {
     "ContainingType": "SecureCommAPI.Controllers.RoomController",
     "Method": "CreateRoom",
-    "RelativePath": "Room/createRoom/{password}",
+    "RelativePath": "Room/createRoom/{roomGUID}/{password}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "roomGUID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
       {
         "Name": "password",
         "Type": "System.String",

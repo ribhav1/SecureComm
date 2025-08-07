@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SecureCommAPI.Models;
+using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
 
 namespace SecureCommAPI.Controllers;
 
@@ -62,14 +64,14 @@ public class RoomController : ControllerBase
         }
     }
 
-    [HttpPost("createRoom/{password}")]
-    public async Task<IActionResult> CreateRoom(string password)
+    [HttpPost("createRoom/{roomGUID}/{password}")]
+    public async Task<IActionResult> CreateRoom(Guid roomGUID, string password)
     {
         try
         {
             RoomModel room = new RoomModel
             {
-                Id = Guid.NewGuid(),
+                Id = roomGUID,
                 Password = password,
                 CreatedAt = DateTime.UtcNow
             };
@@ -86,4 +88,20 @@ public class RoomController : ControllerBase
         }
     }
 
+    [HttpPost("addConnectedUser/{roomGUID}/{newConnectedUserId}/{newConnectedUserPublicKey}")]
+    public async Task<IActionResult> AddConnectedUser(Guid roomGUID, Guid newConnectedUserGuid, RSAParameters newConnectedUserPublicKey)
+    {
+        try
+        {
+            // TODO: -> Update database schema to support new "connected users" structure in a new column in the rooms table
+            //       -> Implement this function to query that column in the rooms table
+            return Ok();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("EXCEPTION CAUGHT: " + e);
+
+            return BadRequest("Failed");
+        }
+    }
 }
