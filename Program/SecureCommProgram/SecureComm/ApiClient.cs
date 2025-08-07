@@ -62,6 +62,20 @@ namespace SecureComm
             }
         }
 
+        public static async Task<RoomModel> AddConnectedUser(Guid roomGUID, Guid newConnectedUserId, string newConnectedUserPublicKey)
+        {
+            string encodedPublicKey = Uri.EscapeDataString(newConnectedUserPublicKey);
+            HttpResponseMessage response = await client.PostAsync($"Room/addConnectedUser/{roomGUID}/{newConnectedUserId}/{newConnectedUserPublicKey}", null);
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadFromJsonAsync<RoomModel>();
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         // Message route functions
         public static async Task<List<MessageModel>> GetMessages(Guid roomGUID, DateTime lastTime)
         {

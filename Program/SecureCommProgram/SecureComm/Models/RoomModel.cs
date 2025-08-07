@@ -8,5 +8,7 @@ public class RoomModel
 
     public string Password { get; set; }
 
+    public Dictionary<Guid, string> ConnectedUsers { get; set; }
+
     public DateTime CreatedAt { get; set; }
 }

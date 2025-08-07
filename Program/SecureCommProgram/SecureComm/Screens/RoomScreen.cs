@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using System.Text.Json;
+using System.Xml.Serialization;
 
 namespace SecureComm.Screens
 {
@@ -60,12 +62,39 @@ namespace SecureComm.Screens
             // add host as first connected user so clients can query it for session key
             if (isHost)
             {
+                string newConnectedUserPublicKeyString = RSAKeyToString(sessionPublicKey);
+                
+                RoomModel newUserRoom = await ApiClient.AddConnectedUser(roomId, userId, newConnectedUserPublicKeyString);
 
+                if (newUserRoom == null)
+                {
+                    WriteMessage("Failed to add to connected users", "SYSTEM");
+                }
             }
 
             await enterChatRoom(roomId, userId, username, screenManager);
             count++;
         }
+
+        public static string RSAKeyToString(RSAParameters publicKey)
+        {
+            using (var sw = new StringWriter())
+            {
+                var serializer = new XmlSerializer(typeof(RSAParameters));
+                serializer.Serialize(sw, publicKey);
+                return sw.ToString();
+            }
+        }
+
+        public static RSAParameters StringToRSAKey(string xml)
+        {
+            using (var sr = new StringReader(xml))
+            {
+                var serializer = new XmlSerializer(typeof(RSAParameters));
+                return (RSAParameters)serializer.Deserialize(sr);
+            }
+        }
+
 
         async Task enterChatRoom(Guid roomGUID, Guid userID, string username, ScreenManager screenManager)
         {
@@ -107,13 +136,27 @@ namespace SecureComm.Screens
         {
             DateTime lastTime = DateTime.UtcNow;
 
+            var messageDecryptCSP = new RSACryptoServiceProvider();
+            messageDecryptCSP.ImportParameters(sessionPrivateKey);
+
             while (inRoomScreen)
             {
                 List<MessageModel> newMessages = await ApiClient.GetMessages(roomGUID, lastTime.ToUniversalTime());
 
                 foreach (MessageModel message in newMessages)
                 {
-                    WriteMessage(message.Content, message.Username);
+                    try
+                    {
+                        var messageBytes = Convert.FromBase64String(Uri.UnescapeDataString(message.Content));
+                        var messageDecryptedBytes = messageDecryptCSP.Decrypt(messageBytes, false);
+                        var messageDecryptedString = Encoding.Unicode.GetString(messageDecryptedBytes);
+                        WriteMessage(messageDecryptedString, message.Username);
+                    }
+                    catch (Exception e)
+                    {
+                        WriteMessage($"[DECRYPTION ERROR] {e.Message}", "SYSTEM");
+                    }
+
                 }
 
                 // Update lastTime to max timestamp received, or keep as is

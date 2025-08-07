@@ -78,6 +78,32 @@
   },
   {
     "ContainingType": "SecureCommAPI.Controllers.RoomController",
+    "Method": "AddConnectedUser",
+    "RelativePath": "Room/addConnectedUser/{roomGUID}/{newConnectedUserId}/{newConnectedUserPublicKey}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roomGUID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "newConnectedUserId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "newConnectedUserPublicKey",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SecureCommAPI.Controllers.RoomController",
     "Method": "CreateRoom",
     "RelativePath": "Room/createRoom/{roomGUID}/{password}",
     "HttpMethod": "POST",

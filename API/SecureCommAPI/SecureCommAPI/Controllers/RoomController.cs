@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SecureCommAPI.Models;
+using System.Diagnostics;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
+using System.Text.Json;
+using System.Xml.Serialization;
 
 namespace SecureCommAPI.Controllers;
 
@@ -73,6 +76,7 @@ public class RoomController : ControllerBase
             {
                 Id = roomGUID,
                 Password = password,
+                ConnectedUsers = new Dictionary<Guid, string>(),
                 CreatedAt = DateTime.UtcNow
             };
             db_context.Rooms.Add(room);
@@ -89,13 +93,23 @@ public class RoomController : ControllerBase
     }
 
     [HttpPost("addConnectedUser/{roomGUID}/{newConnectedUserId}/{newConnectedUserPublicKey}")]
-    public async Task<IActionResult> AddConnectedUser(Guid roomGUID, Guid newConnectedUserGuid, RSAParameters newConnectedUserPublicKey)
+    public async Task<IActionResult> AddConnectedUser(Guid roomGUID, Guid newConnectedUserId, string newConnectedUserPublicKey)
     {
         try
         {
-            // TODO: -> Update database schema to support new "connected users" structure in a new column in the rooms table
-            //       -> Implement this function to query that column in the rooms table
-            return Ok();
+            RoomModel targetRoom = await db_context.Rooms.SingleOrDefaultAsync(room => room.Id == roomGUID);
+            if (targetRoom == null)
+                return NotFound("Room not found");
+
+            var updatedUsers = new Dictionary<Guid, string>(targetRoom.ConnectedUsers ?? new())
+            {
+                [newConnectedUserId] = newConnectedUserPublicKey
+            };
+            targetRoom.ConnectedUsers = updatedUsers;
+
+            await db_context.SaveChangesAsync();
+
+            return Ok(targetRoom.ConnectedUsers);
         }
         catch (Exception e)
         {
@@ -104,4 +118,5 @@ public class RoomController : ControllerBase
             return BadRequest("Failed");
         }
     }
+
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SecureComm")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d551ee03da545ef9e519328c34d64991ba22d212")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1539c5fe0fe6337f765a60406ed1395599bf01e1")]
 [assembly: System.Reflection.AssemblyProductAttribute("SecureComm")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SecureComm")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
