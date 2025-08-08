@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\ribha\\downloads\\c# solutions\\securecomm\\program\\securecommprogram\\securecomm\\screens\\roomscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\screens\\roomscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\ribha\\downloads\\c# solutions\\securecomm\\program\\securecommprogram\\securecomm\\encryptionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\encryptionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\ribha\\downloads\\c# solutions\\securecomm\\program\\securecommprogram\\securecomm\\screens\\enteruseridscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\screens\\enteruseridscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\ribha\\downloads\\c# solutions\\securecomm\\program\\securecommprogram\\securecomm\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\apiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\ribha\\downloads\\c# solutions\\securecomm\\program\\securecommprogram\\securecomm\\screens\\roomscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\screens\\roomscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\ribha\\downloads\\c# solutions\\securecomm\\program\\securecommprogram\\securecomm\\screens\\enterpasswordscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\screens\\enterpasswordscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\ribha\\downloads\\c# solutions\\securecomm\\program\\securecommprogram\\securecomm\\screenmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,16 +31,8 @@
       "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\screens\\enterguidscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\ribha\\downloads\\c# solutions\\securecomm\\program\\securecommprogram\\securecomm\\screens\\enteruseridscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\screens\\enteruseridscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\ribha\\downloads\\c# solutions\\securecomm\\program\\securecommprogram\\securecomm\\iscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\iscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\ribha\\downloads\\c# solutions\\securecomm\\program\\securecommprogram\\securecomm\\screens\\enterpasswordscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|solutionrelative:securecomm\\screens\\enterpasswordscreen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5E1F41FE-A0D0-4528-A5C3-398C46469F3E}|SecureComm\\SecureComm.csproj|c:\\users\\ribha\\downloads\\c# solutions\\securecomm\\program\\securecommprogram\\securecomm\\models\\roommodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -50,36 +54,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "RoomModel.cs",
-              "DocumentMoniker": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Models\\RoomModel.cs",
-              "RelativeDocumentMoniker": "SecureComm\\Models\\RoomModel.cs",
-              "ToolTip": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Models\\RoomModel.cs",
-              "RelativeToolTip": "SecureComm\\Models\\RoomModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "EncryptionManager.cs",
+              "DocumentMoniker": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\EncryptionManager.cs",
+              "RelativeDocumentMoniker": "SecureComm\\EncryptionManager.cs",
+              "ToolTip": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\EncryptionManager.cs",
+              "RelativeToolTip": "SecureComm\\EncryptionManager.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T05:40:33.389Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IScreen.cs",
-              "DocumentMoniker": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\IScreen.cs",
-              "RelativeDocumentMoniker": "SecureComm\\IScreen.cs",
-              "ToolTip": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\IScreen.cs",
-              "RelativeToolTip": "SecureComm\\IScreen.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T05:35:25.564Z",
+              "WhenOpened": "2025-08-08T18:41:23.397Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "ScreenManager.cs",
               "DocumentMoniker": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\ScreenManager.cs",
               "RelativeDocumentMoniker": "SecureComm\\ScreenManager.cs",
@@ -87,12 +79,11 @@
               "RelativeToolTip": "SecureComm\\ScreenManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T22:48:23.413Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-06T22:48:23.413Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Program.cs",
               "RelativeDocumentMoniker": "SecureComm\\Program.cs",
@@ -104,7 +95,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "EnterGuidScreen.cs",
               "DocumentMoniker": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Screens\\EnterGuidScreen.cs",
               "RelativeDocumentMoniker": "SecureComm\\Screens\\EnterGuidScreen.cs",
@@ -112,12 +103,11 @@
               "RelativeToolTip": "SecureComm\\Screens\\EnterGuidScreen.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAAACIAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T22:47:43.95Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-06T22:47:43.95Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "EnterPasswordScreen.cs",
               "DocumentMoniker": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Screens\\EnterPasswordScreen.cs",
               "RelativeDocumentMoniker": "SecureComm\\Screens\\EnterPasswordScreen.cs",
@@ -125,11 +115,12 @@
               "RelativeToolTip": "SecureComm\\Screens\\EnterPasswordScreen.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T22:43:07.304Z"
+              "WhenOpened": "2025-08-06T22:43:07.304Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "MessageModel.cs",
               "DocumentMoniker": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Models\\MessageModel.cs",
               "RelativeDocumentMoniker": "SecureComm\\Models\\MessageModel.cs",
@@ -141,7 +132,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "EnterUserIdScreen.cs",
               "DocumentMoniker": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Screens\\EnterUserIdScreen.cs",
               "RelativeDocumentMoniker": "SecureComm\\Screens\\EnterUserIdScreen.cs",
@@ -154,29 +145,53 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "RoomScreen.cs",
               "DocumentMoniker": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Screens\\RoomScreen.cs",
               "RelativeDocumentMoniker": "SecureComm\\Screens\\RoomScreen.cs",
               "ToolTip": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Screens\\RoomScreen.cs",
               "RelativeToolTip": "SecureComm\\Screens\\RoomScreen.cs",
-              "ViewState": "AgIAAGwBAAAAAAAAAAAuwHEAAABjAAAAAAAAAA==",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAAAHEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-06T18:35:31.883Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "ApiClient.cs",
               "DocumentMoniker": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\ApiClient.cs",
               "RelativeDocumentMoniker": "SecureComm\\ApiClient.cs",
               "ToolTip": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\ApiClient.cs",
               "RelativeToolTip": "SecureComm\\ApiClient.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAgwFsAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAADYAAAAAAAAAAAAgwFkAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-06T18:29:35.034Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IScreen.cs",
+              "DocumentMoniker": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\IScreen.cs",
+              "RelativeDocumentMoniker": "SecureComm\\IScreen.cs",
+              "ToolTip": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\IScreen.cs",
+              "RelativeToolTip": "SecureComm\\IScreen.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T05:35:25.564Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RoomModel.cs",
+              "DocumentMoniker": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Models\\RoomModel.cs",
+              "RelativeDocumentMoniker": "SecureComm\\Models\\RoomModel.cs",
+              "ToolTip": "C:\\Users\\ribha\\Downloads\\C# Solutions\\SecureComm\\Program\\SecureCommProgram\\SecureComm\\Models\\RoomModel.cs",
+              "RelativeToolTip": "SecureComm\\Models\\RoomModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T05:40:33.389Z"
             }
           ]
         }

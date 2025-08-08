@@ -10,6 +10,9 @@ using System.Xml.Serialization;
 using System.Text.Encodings.Web;
 using System.Web;
 using System.Runtime.InteropServices.Marshalling;
+using System.Diagnostics.Tracing;
+
+//using SecureComm;
 
 namespace SecureComm.Screens
 {
@@ -35,7 +38,10 @@ namespace SecureComm.Screens
 
         private Dictionary<int, string> sessionPublicKeyChunks = new Dictionary<int, string>();
         private Dictionary<int, string> sessionPrivateKeyChunks = new Dictionary<int, string>();
-        int finishedLength = 0;
+
+        bool publicKeyProcessed = false;
+        bool privateKeyProcessed = false;
+        bool keysComplete => publicKeyProcessed && privateKeyProcessed;
 
         public RoomScreen(Guid _roomId, string _username, Guid _userId, bool _isHost)
         {
@@ -60,17 +66,15 @@ namespace SecureComm.Screens
         int count = 0;
         public async Task DrawScreen(ScreenManager screenManager)
         {
-            // make sure this function is only called once
+            // make sure DrawScreen is only called once
             if (count != 0)
             {
                 return;
             }
 
             // add self as connected user
-            string newConnectedUserPublicKeyString = RSAKeyToString(userPublicKey);
-
+            string newConnectedUserPublicKeyString = EncryptionManager.RSAKeyToString(userPublicKey);
             RoomModel newUserRoom = await ApiClient.AddConnectedUser(roomId, userId, newConnectedUserPublicKeyString);
-
             if (newUserRoom == null)
             {
                 WriteMessage("Failed to add to connected users", "SYSTEM");
@@ -80,57 +84,19 @@ namespace SecureComm.Screens
             count++;
         }
 
-        public static string RSAKeyToString(RSAParameters publicKey)
-        {
-            using (var sw = new StringWriter())
-            {
-                var serializer = new XmlSerializer(typeof(RSAParameters));
-                serializer.Serialize(sw, publicKey);
-                return sw.ToString();
-            }
-        }
-
-        public static RSAParameters StringToRSAKey(string xml)
-        {
-            using (var sr = new StringReader(xml))
-            {
-                var serializer = new XmlSerializer(typeof(RSAParameters));
-                return (RSAParameters)serializer.Deserialize(sr);
-            }
-        }
-
-
         async Task enterChatRoom(Guid roomGUID, Guid userID, string username, ScreenManager screenManager)
         {
-            //if client, retrieve session key from connected users
+            //if client, request and retrieve session key from connected users
             if (!isHost)
             {
-                bool sessionKeyRequestSent = false;
-                while (!sessionKeyRequestSent)
-                {
-                    RoomModel targetRoom = await ApiClient.GetRoomById(roomGUID);
-
-                    Dictionary<Guid, string> targetRoomConnectedUsers = targetRoom.ConnectedUsers;
-                    var otherUsers = targetRoomConnectedUsers.Where(x => x.Key != userId).ToList();
-                    if (!otherUsers.Any())
-                        continue;
-
-                    KeyValuePair<Guid, string> firstPair = otherUsers.First();
-                    RSAParameters firstPairPublicKey = StringToRSAKey(Uri.UnescapeDataString(firstPair.Value));
-
-                    var messageEncryptCSP = new RSACryptoServiceProvider(2048);
-                    messageEncryptCSP.ImportParameters(firstPairPublicKey); // encrypt direct message using the intended receipient's public key
-
-                    MessageModel directMessage = await ApiClient.SendMessage(roomGUID, userID, username, EncryptMessage($"REQUEST SESSION KEY {userID}", messageEncryptCSP), firstPair.Key, "Red");
-                    if (directMessage == null)
-                    {
-                        WriteMessage("Failed to send message", "SYSTEM");
-                        continue;
-                    }
-
-                    sessionKeyRequestSent = true;
-                }
+                await RequestSessionKeysAsClient(roomGUID, userID, username);
+                await RetrieveSessionKeysAsClient(roomGUID, userID);
             }
+
+            // start recieving direct messages in background thread
+            Thread directMessageListener = new Thread(() => DirectMessageListener(roomGUID, userID));
+            directMessageListener.IsBackground = true;
+            directMessageListener.Start();
 
             // start recieving messages in background thread
             Thread messageReciever = new Thread(() => RecieveMessages(roomGUID, userID));
@@ -141,49 +107,52 @@ namespace SecureComm.Screens
             await HandleUserInput(roomGUID, userID, username, screenManager);
         }
 
-        private string EncryptMessage(string message, RSACryptoServiceProvider messageEncryptCSP)
+        async Task RequestSessionKeysAsClient(Guid roomGUID, Guid userID, string username)
         {
-            var messageBytes = System.Text.Encoding.Unicode.GetBytes(message);
-            var messageEncryptedBytes = messageEncryptCSP.Encrypt(messageBytes, false);
-            var messageEncryptedString = Convert.ToBase64String(messageEncryptedBytes);
+            bool sessionKeyRequestSent = false;
+            while (!sessionKeyRequestSent)
+            {
+                RoomModel targetRoom = await ApiClient.GetRoomById(roomGUID);
 
-            return messageEncryptedString;
+                Dictionary<Guid, string> targetRoomConnectedUsers = targetRoom.ConnectedUsers;
+                var otherUsers = targetRoomConnectedUsers.Where(x => x.Key != userID).ToList();
+                if (!otherUsers.Any())
+                    continue;
+
+                KeyValuePair<Guid, string> firstPair = otherUsers.First();
+                RSAParameters firstPairPublicKey = EncryptionManager.StringToRSAKey(Uri.UnescapeDataString(firstPair.Value));
+
+                var messageEncryptCSP = new RSACryptoServiceProvider(2048);
+                messageEncryptCSP.ImportParameters(firstPairPublicKey); // encrypt direct message using the intended receipient's public key
+
+                MessageModel directMessage = await ApiClient.SendMessage(roomGUID, userID, username, EncryptionManager.EncryptMessage($"REQUEST SESSION KEY {userID}", messageEncryptCSP), firstPair.Key, "Red");
+                if (directMessage == null)
+                {
+                    WriteMessage("Failed to send message", "SYSTEM");
+                    continue;
+                }
+
+                sessionKeyRequestSent = true;
+            }
         }
 
-        private string DecryptMessage(string message, RSACryptoServiceProvider messageDecryptCSP)
-        {
-            var messageBytes = Convert.FromBase64String(Uri.UnescapeDataString(message));
-            var messageDecryptedBytes = messageDecryptCSP.Decrypt(messageBytes, false);
-            var messageDecryptedString = Encoding.Unicode.GetString(messageDecryptedBytes);
-
-            return messageDecryptedString;
-        }
-
-        async Task RecieveMessages(Guid roomGUID, Guid userId)
+        async Task DirectMessageListener(Guid roomGUID, Guid userId)
         {
             DateTime lastTime = DateTime.UtcNow;
 
-            var messageDecryptCSP = new RSACryptoServiceProvider(2048);
-            messageDecryptCSP.ImportParameters(sessionPrivateKey);
-
+            // direct messages to the user are encrypted using their public key, so their private key is needed to decrypt direct messages
             var directMessageDecryptCSP = new RSACryptoServiceProvider(2048);
             directMessageDecryptCSP.ImportParameters(userPrivateKey);
 
-            int totalPubChunks = 0;
-            int totalPrvChunks = 0;
-
             while (inRoomScreen)
             {
-                EnsureBufferSize();
-
                 List<MessageModel> newDirectMessages = await ApiClient.GetMessages(roomGUID, lastTime.ToUniversalTime(), userId);
 
                 foreach (MessageModel message in newDirectMessages)
                 {
                     try
                     {
-                        string decryptedDirectMessage = DecryptMessage(message.Content, directMessageDecryptCSP);
-                        //WriteMessage(decryptedDirectMessage, message.Username);
+                        string decryptedDirectMessage = EncryptionManager.DecryptMessage(message.Content, directMessageDecryptCSP);
 
                         if (decryptedDirectMessage.StartsWith("REQUEST SESSION KEY")) // if recieving a request, send a response
                         {
@@ -193,21 +162,20 @@ namespace SecureComm.Screens
 
                             // get the sender's public key using their guid
                             string senderPublicKeyString = Uri.UnescapeDataString((await ApiClient.GetRoomById(roomGUID)).ConnectedUsers[senderGuid]);
-                            RSAParameters senderPublicKey = StringToRSAKey(senderPublicKeyString);
+                            RSAParameters senderPublicKey = EncryptionManager.StringToRSAKey(senderPublicKeyString);
 
                             // create a new instance of RSACryptoServiceProvider that can encrypt using the sender's public key
                             var encryptCSP = new RSACryptoServiceProvider(2048);
                             encryptCSP.ImportParameters(senderPublicKey);
 
                             // convert the session public keys to strings
-                            string sessionPublicKeyString = RSAKeyToString(sessionPublicKey);
-                            string sessionPrivateKeyString = RSAKeyToString(sessionPrivateKey);
+                            string sessionPublicKeyString = EncryptionManager.RSAKeyToString(sessionPublicKey);
+                            string sessionPrivateKeyString = EncryptionManager.RSAKeyToString(sessionPrivateKey);
 
                             // divide the keys into chunks to be encrypted as there is an upper limit on the length of data that can be encrypted at a time
                             int chunkSize = 80; // key size = 2048 bits = 256 bytes - 11 bytes for padding and header data = 245 bytes / 2 = 122.5 chars = 122 chars - chunk message prefix length = 101 chars ~ 100
                             int totalChunks = (int)Math.Ceiling((double)sessionPublicKeyString.Length / chunkSize);
 
-                            totalPubChunks = totalChunks;
                             // send public key
                             for (int i = 0; i < totalChunks; i++)
                             {
@@ -217,11 +185,11 @@ namespace SecureComm.Screens
                                 string chunk = sessionPublicKeyString.Substring(startIndex, length);
                                 string chunkMessage = $"SESSION_PUB_PART {i + 1}/{totalChunks} {chunk}";
 
-                                await ApiClient.SendMessage(roomGUID, userId, username, EncryptMessage(chunkMessage, encryptCSP), senderGuid, "Red");
+                                await ApiClient.SendMessage(roomGUID, userId, username, EncryptionManager.EncryptMessage(chunkMessage, encryptCSP), senderGuid, "Red");
                             }
 
-                            totalChunks = (int)Math.Ceiling((double)sessionPrivateKeyString.Length / chunkSize);
                             // send private key
+                            totalChunks = (int)Math.Ceiling((double)sessionPrivateKeyString.Length / chunkSize);
                             for (int i = 0; i < totalChunks; i++)
                             {
                                 int startIndex = i * chunkSize;
@@ -230,64 +198,127 @@ namespace SecureComm.Screens
                                 string chunk = sessionPrivateKeyString.Substring(startIndex, length);
                                 string chunkMessage = $"SESSION_PRV_PART {i + 1}/{totalChunks} {chunk}";
 
-                                await ApiClient.SendMessage(roomGUID, userId, username, EncryptMessage(chunkMessage, encryptCSP), senderGuid, "Red");
+                                await ApiClient.SendMessage(roomGUID, userId, username, EncryptionManager.EncryptMessage(chunkMessage, encryptCSP), senderGuid, "Red");
                             }
+
                         }
-                        else if (decryptedDirectMessage.StartsWith("SESSION_PUB_PART")) // if recieving the public session key, parse string and set public session key
+                    }
+                    catch (Exception e)
+                    {
+                        WriteMessage("DECRYPT ERROR: " + e.Message, message.Username);
+                    }
+
+                }
+
+                if (newDirectMessages.Any())
+                {
+                    lastTime = newDirectMessages.Max(m => m.CreatedAt);
+                }
+            }
+        }
+
+        async Task RetrieveSessionKeysAsClient(Guid roomGUID, Guid userId)
+        {
+            Console.WriteLine("Waiting for session keys...", "SYSTEM");
+
+            DateTime lastTime = DateTime.UtcNow;
+
+            // direct messages to the user are encrypted using their public key, so their private key is needed to decrypt direct messages
+            var directMessageDecryptCSP = new RSACryptoServiceProvider(2048);
+            directMessageDecryptCSP.ImportParameters(userPrivateKey);
+
+            while (inRoomScreen && !keysComplete)
+            {
+                List<MessageModel> newDirectMessages = await ApiClient.GetMessages(roomGUID, lastTime.ToUniversalTime(), userId);
+
+                foreach (MessageModel message in newDirectMessages)
+                {
+                    try
+                    {
+                        string decryptedDirectMessage = EncryptionManager.DecryptMessage(message.Content, directMessageDecryptCSP);
+
+                        if (decryptedDirectMessage.StartsWith("SESSION_PUB_PART")) // if recieving the public session key, parse string and set public session key
                         {
-                            var data = RecieveMessageChunks(decryptedDirectMessage);
+                            var data = ParseChunk(decryptedDirectMessage);
                             string chunkData = data.Item1;
                             int chunkNumber = data.Item2;
                             int totalChunks = data.Item3;
 
                             sessionPublicKeyChunks[chunkNumber] = chunkData;
-                            if (sessionPublicKeyChunks.Count == totalChunks)
+                            if (!publicKeyProcessed && sessionPublicKeyChunks.Count == totalChunks)
                             {
                                 var orderedData = string.Concat(sessionPublicKeyChunks.OrderBy(c => c.Key).Select(c => c.Value));
-                                sessionPublicKey = StringToRSAKey(orderedData);
+                                sessionPublicKey = EncryptionManager.StringToRSAKey(orderedData);
+
+                                publicKeyProcessed = true;
+                                WriteMessage("Session Public Key Recieved", "SYSTEM");
                             }
                         }
                         else if (decryptedDirectMessage.StartsWith("SESSION_PRV_PART")) // if recieving the private session key, parse string and set public session key
                         {
-                            var data = RecieveMessageChunks(decryptedDirectMessage);
+                            var data = ParseChunk(decryptedDirectMessage);
                             string chunkData = data.Item1;
                             int chunkNumber = data.Item2;
                             int totalChunks = data.Item3;
 
                             sessionPrivateKeyChunks[chunkNumber] = chunkData;
-                            if (sessionPrivateKeyChunks.Count == totalChunks)
+                            if (!privateKeyProcessed && sessionPrivateKeyChunks.Count == totalChunks)
                             {
                                 var orderedData = string.Concat(sessionPrivateKeyChunks.OrderBy(c => c.Key).Select(c => c.Value));
-                                sessionPrivateKey = StringToRSAKey(orderedData);
-                                messageDecryptCSP.ImportParameters(sessionPrivateKey);
+                                sessionPrivateKey = EncryptionManager.StringToRSAKey(orderedData);
+                                //messageDecryptCSP.ImportParameters(sessionPrivateKey);
+
+                                privateKeyProcessed = true;
+                                WriteMessage("Session Private Key Recieved", "SYSTEM");
                             }
                         }
                     }
                     catch (Exception e)
                     {
-                        WriteMessage($"[DECRYPTION ERROR] {e.Message}", message.Username);
+                        WriteMessage("DECRYPT ERROR: " + e.Message, message.Username);
                     }
 
                 }
 
+                if (newDirectMessages.Any())
+                {
+                    lastTime = newDirectMessages.Max(m => m.CreatedAt);
+                }
+            }
+
+            WriteMessage("Finished Retrieving Keys", "SYSTEM");
+        }
+
+        async Task RecieveMessages(Guid roomGUID, Guid userId)
+        {
+            DateTime lastTime = DateTime.UtcNow;
+
+            var messageDecryptCSP = new RSACryptoServiceProvider(2048);
+            messageDecryptCSP.ImportParameters(sessionPrivateKey);
+
+            while (inRoomScreen)
+            {
+                EnsureBufferSize();
+
+                // recieve room messages
                 List<MessageModel> newMessages = await ApiClient.GetMessages(roomGUID, lastTime.ToUniversalTime(), null);
                 
                 foreach (MessageModel message in newMessages)
                 {
                     try
                     {
-                        string decryptedMessage = DecryptMessage(message.Content, messageDecryptCSP);
+                        string decryptedMessage = EncryptionManager.DecryptMessage(message.Content, messageDecryptCSP);
                         WriteMessage(decryptedMessage, message.Username);
                     }
                     catch (Exception e)
                     {
-                        WriteMessage($"[DECRYPTION ERROR] {e.Message}", message.Username);
+                        WriteMessage("DECRYPT ERROR: " + e.Message, message.Username);
                     }
 
                 }
 
                 // Update lastTime to max timestamp received, or keep as is
-                var allMessages = newMessages.Concat(newDirectMessages).ToList();
+                var allMessages = newMessages;
                 if (allMessages.Any())
                 {
                     lastTime = allMessages.Max(m => m.CreatedAt);
@@ -296,7 +327,7 @@ namespace SecureComm.Screens
             }
         }
 
-        private (string, int, int) RecieveMessageChunks(string message)
+        private (string, int, int) ParseChunk(string message)
         {
             var parts = message.Split(' ', 3);
             
@@ -305,8 +336,6 @@ namespace SecureComm.Screens
             int totalChunks = int.Parse(chunkInfo[1]);
 
             string chunkData = parts[2];
-
-
 
             return (chunkData, chunkNumber, totalChunks);
         }
@@ -347,7 +376,6 @@ namespace SecureComm.Screens
                 EnsureBufferSize();
 
                 var key = Console.ReadKey(intercept: true);
-
 
                 if (key.Key == ConsoleKey.Enter)
                 {

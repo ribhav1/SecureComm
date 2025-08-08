@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SecureCommAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+27fa962d426bc432d43348e6fa0959f573305ef9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b335e111a0bc500e85282da6fbc58fd2f9ab8183")]
 [assembly: System.Reflection.AssemblyProductAttribute("SecureCommAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SecureCommAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
