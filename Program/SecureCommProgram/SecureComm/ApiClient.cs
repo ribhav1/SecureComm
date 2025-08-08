@@ -65,7 +65,7 @@ namespace SecureComm
         public static async Task<RoomModel> AddConnectedUser(Guid roomGUID, Guid newConnectedUserId, string newConnectedUserPublicKey)
         {
             string encodedPublicKey = Uri.EscapeDataString(newConnectedUserPublicKey);
-            HttpResponseMessage response = await client.PostAsync($"Room/addConnectedUser/{roomGUID}/{newConnectedUserId}/{newConnectedUserPublicKey}", null);
+            HttpResponseMessage response = await client.PostAsync($"Room/addConnectedUser/{roomGUID}/{newConnectedUserId}/{encodedPublicKey}", null);
             if (response.IsSuccessStatusCode)
             {
                 return await response.Content.ReadFromJsonAsync<RoomModel>();
@@ -77,12 +77,12 @@ namespace SecureComm
         }
 
         // Message route functions
-        public static async Task<List<MessageModel>> GetMessages(Guid roomGUID, DateTime lastTime)
+        public static async Task<List<MessageModel>> GetMessages(Guid roomGUID, DateTime lastTime, Guid? directlyToUserId)
         {
             try
             {
                 string encodedTime = Uri.EscapeDataString(lastTime.ToString("yyyy-MM-dd HH:mm:ss.ffffffK"));
-                List<MessageModel> newMessages = await client.GetFromJsonAsync<List<MessageModel>>($"/Message/getMessages/{roomGUID}/{encodedTime}");
+                List<MessageModel> newMessages = await client.GetFromJsonAsync<List<MessageModel>>($"/Message/getMessages/{roomGUID}/{encodedTime}?directRecepientUserId={directlyToUserId}");
                 return newMessages;
             }
             catch (Exception e)

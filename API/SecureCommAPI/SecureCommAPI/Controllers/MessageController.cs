@@ -27,7 +27,14 @@ public class MessageController : ControllerBase
             // it was sent after the last time messages were returned from the db
             // -> if there is no direct recipient specified in the query, then if the direct reciepient property is null
             // -> if there is a direct reciepent specified in the query, then if the the direct recipeint property matches the query param
-            return await db_context.Messages.Where(message => (message.RoomId == roomGUID && message.CreatedAt > lastCheckedTime && message.DirectlyTo == (directRecepientUserId == null ? null : directRecepientUserId))).ToListAsync();
+            Guid? directlyTo = directRecepientUserId ?? null;
+            
+            return await db_context.Messages
+                .Where(message => 
+                    message.RoomId == roomGUID && 
+                    message.CreatedAt > lastCheckedTime && 
+                    message.DirectlyTo == (directRecepientUserId == null ? null : directRecepientUserId))
+                .ToListAsync();
         }
         catch (Exception e)
         {
