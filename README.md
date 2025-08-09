@@ -162,9 +162,9 @@ dotnet run
 
 Pull requests are welcome! If you’d like to contribute:
 1. Fork this repository
-2. Create a feature branch (`git checkout -b feature/PlanetTrails`)
-3. Commit your changes (`git commit -m 'Add orbit trails'`)
-4. Push to the branch (`git push origin feature/PlanetTrails`)
+2. Create a feature branch (`git checkout -b feature/SecureComm`)
+3. Commit your changes (`git commit -m 'Added optimizations'`)
+4. Push to the branch (`git push origin feature/SecureComm`)
 5. Open a Pull Request
 
 ---
