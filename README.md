@@ -155,8 +155,6 @@ dotnet run
 
 - AES session keys for performance (RSA for exchange only)
 - Web or mobile client
-- Persistent user accounts with authentication
-- Multi-room management in single session
 
 ---
 
