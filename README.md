@@ -1,6 +1,6 @@
 # 🔐 SecureComm – End-to-End Encrypted Messaging
 
-A secure, real-time messaging application built with **.NET 9** that combines a **C# Console Client** with an **ASP.NET Core Web API** backend.  
+A secure, real-time messaging application built with **.NET 9** that combines a **C# Console Client** with an **ASP.NET Core Web API** backend to connected to a Supabase database.  
 Messages and session keys are exchanged via **RSA public-private key cryptography**, ensuring confidentiality and integrity across communication channels.
 
 <p align="center">
