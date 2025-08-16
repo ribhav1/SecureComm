@@ -1,6 +1,6 @@
 # 🔐 SecureComm – End-to-End Encrypted Messaging
 
-A secure, real-time messaging application built with **.NET 9** that combines a **C# Console Client** with an **ASP.NET Core Web API** backend.  
+A secure, real-time messaging application built with **.NET 9** that combines a **C# Console Client** with an **ASP.NET Core Web API** backend to connected to a Supabase database.  
 Messages and session keys are exchanged via **RSA public-private key cryptography**, ensuring confidentiality and integrity across communication channels.
 
 <p align="center">
@@ -155,8 +155,17 @@ dotnet run
 
 - AES session keys for performance (RSA for exchange only)
 - Web or mobile client
-- Persistent user accounts with authentication
-- Multi-room management in single session
+
+---
+
+## 🧑‍💻 Contributing
+
+Pull requests are welcome! If you’d like to contribute:
+1. Fork this repository
+2. Create a feature branch (`git checkout -b feature/SecureComm`)
+3. Commit your changes (`git commit -m 'Added optimizations'`)
+4. Push to the branch (`git push origin feature/SecureComm`)
+5. Open a Pull Request
 
 ---
 
