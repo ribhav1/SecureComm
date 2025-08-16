@@ -76,6 +76,19 @@ namespace SecureComm
             }
         }
 
+        public static async Task<RoomModel> RemoveConnectedUser(Guid roomGUID, Guid newConnectedUserId)
+        {
+            HttpResponseMessage response = await client.PostAsync($"Room/removeConnectedUser/{roomGUID}/{newConnectedUserId}", null);
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadFromJsonAsync<RoomModel>();
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         // Message route functions
         public static async Task<List<MessageModel>> GetMessages(Guid roomGUID, DateTime lastTime, Guid? directlyToUserId)
         {

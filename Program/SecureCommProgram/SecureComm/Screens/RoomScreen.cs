@@ -11,6 +11,7 @@ using System.Text.Encodings.Web;
 using System.Web;
 using System.Runtime.InteropServices.Marshalling;
 using System.Diagnostics.Tracing;
+using System.Data;
 
 //using SecureComm;
 
@@ -45,6 +46,11 @@ namespace SecureComm.Screens
 
         public RoomScreen(Guid _roomId, string _username, Guid _userId, bool _isHost)
         {
+            AppDomain.CurrentDomain.ProcessExit += (object sender, EventArgs e) =>
+            {
+                ApiClient.RemoveConnectedUser(_roomId, _userId);
+            };
+
             roomId = _roomId;
             username = _username;
             userId = _userId;

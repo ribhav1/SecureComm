@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "SecureCommAPI.Controllers.MessageController",
+    "Method": "DeleteRoomMessages",
+    "RelativePath": "Message/deleteRoomMessages/{roomGUID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roomGUID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SecureCommAPI.Controllers.MessageController",
     "Method": "GetMessages",
     "RelativePath": "Message/getMessages/{roomGUID}/{lastCheckedTime}",
     "HttpMethod": "GET",
@@ -125,6 +141,22 @@
   },
   {
     "ContainingType": "SecureCommAPI.Controllers.RoomController",
+    "Method": "DeleteRoom",
+    "RelativePath": "Room/deleteRoom/{roomGUID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roomGUID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SecureCommAPI.Controllers.RoomController",
     "Method": "GetRoomById",
     "RelativePath": "Room/getRoom/{id}",
     "HttpMethod": "GET",
@@ -148,6 +180,27 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "SecureCommAPI.Controllers.RoomController",
+    "Method": "RemoveConnectedUser",
+    "RelativePath": "Room/removeConnectedUser/{roomGUID}/{newConnectedUserId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roomGUID",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "newConnectedUserId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "SecureCommAPI.Controllers.RoomController",

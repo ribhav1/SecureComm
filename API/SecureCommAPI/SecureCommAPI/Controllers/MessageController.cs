@@ -74,6 +74,23 @@ public class MessageController : ControllerBase
 
             return BadRequest("Failed");
         }
+    }
 
+    [HttpDelete("deleteRoomMessages/{roomGUID}")]
+    public async Task<IActionResult> DeleteRoomMessages(Guid roomGUID)
+    {
+        try
+        {
+            await db_context.Messages.Where(message => message.RoomId == roomGUID).ExecuteDeleteAsync();
+            await db_context.SaveChangesAsync();
+
+            return Ok("Deleted room messages sucessfully");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("EXCEPTION CAUGHT: " + e);
+
+            return BadRequest("Failed to delete room messages");
+        }
     }
 }

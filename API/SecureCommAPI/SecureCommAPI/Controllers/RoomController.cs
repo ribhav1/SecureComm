@@ -115,8 +115,59 @@ public class RoomController : ControllerBase
         {
             Console.WriteLine("EXCEPTION CAUGHT: " + e);
 
-            return BadRequest("Failed");
+            return BadRequest("Could not add user");
         }
     }
 
+    [HttpPost("removeConnectedUser/{roomGUID}/{newConnectedUserId}")]
+    public async Task<IActionResult> RemoveConnectedUser(Guid roomGUID, Guid newConnectedUserId)
+    {
+        try
+        {
+            RoomModel targetRoom = await db_context.Rooms.SingleOrDefaultAsync(room => room.Id == roomGUID);
+            if (targetRoom == null)
+                return NotFound("Room not found");
+
+            var updatedUsers = new Dictionary<Guid, string>(targetRoom.ConnectedUsers ?? new());
+            updatedUsers.Remove(newConnectedUserId);
+            targetRoom.ConnectedUsers = updatedUsers;
+
+            // if there are no more users in the room, delete the room and all of its messages
+            if (targetRoom.ConnectedUsers.Count == 0)
+            {
+                await new MessageController(db_context).DeleteRoomMessages(roomGUID); // messages have to be deleted first because of foreign key reference
+                await DeleteRoom(roomGUID);
+
+                return Ok("No connected users detected. Room and all messages deleted");
+            }
+
+            await db_context.SaveChangesAsync();
+
+            return Ok(targetRoom.ConnectedUsers);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("EXCEPTION CAUGHT: " + e.Message);
+
+            return BadRequest("Could not remove user");
+        }
+    }
+
+    [HttpDelete("deleteRoom/{roomGUID}")]
+    public async Task<IActionResult> DeleteRoom(Guid roomGUID)
+    {
+        try
+        {
+            await db_context.Rooms.Where(room => room.Id == roomGUID).ExecuteDeleteAsync();
+            await db_context.SaveChangesAsync();
+
+            return Ok("Deleted room sucessfully");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("EXCEPTION CAUGHT: " + e.Message);
+
+            return BadRequest("Could not delete room");
+        }
+    }
 }
