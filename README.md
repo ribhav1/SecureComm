@@ -12,7 +12,7 @@ Messages and session keys are exchanged via **RSA public-private key cryptograph
 
 ---
 
-## 🧠 Overview
+## Overview
 
 SecureComm is designed for **secure, private chatrooms** where users exchange encrypted messages without exposing plaintext data over the network.  
 It supports:
@@ -23,18 +23,18 @@ It supports:
 
 ---
 
-## 📦 Features
+## Features
 
-- 🔑 **RSA 2048 Encryption** – all messages and keys are encrypted before transmission
-- 🗝️ **Secure Session Key Exchange** – clients request keys from the host in segmented encrypted chunks
-- 🖥️ **Console Chat Interface** – minimal, responsive interface with real-time message updates
-- 🏠 **Room Management** – create, validate, and join rooms with password authentication
-- 📨 **Direct Messaging** – ability to send encrypted messages to a specific user
-- 🌐 **API Backend** – handles room state, user connections, and message storage
+- **RSA 2048 Encryption** – all messages and keys are encrypted before transmission
+- **Secure Session Key Exchange** – clients request keys from the host in segmented encrypted chunks
+- **Console Chat Interface** – minimal, responsive interface with real-time message updates
+- **Room Management** – create, validate, and join rooms with password authentication
+- **Direct Messaging** – ability to send encrypted messages to a specific user
+- **API Backend** – handles room state, user connections, and message storage
 
 ---
 
-## 📁 File Structure
+## File Structure
 
 ```
 SecureComm/
@@ -69,15 +69,15 @@ SecureComm/
 
 ---
 
-## 🛠️ Installation & Usage
+## Installation & Usage
 
-### 📦 Prerequisites
+### Prerequisites
 
 - **.NET 9 SDK** installed
 - SQL database (configured in `appsettings.json` for API)
 - IDE such as **Visual Studio** or **Rider** for development
 
-### ▶️ Run the Application
+### Run the Application
 
 #### 1. Clone the repository:
 ```bash
@@ -100,7 +100,7 @@ dotnet run
 
 ---
 
-## 💬 Chatroom Flow
+## Chatroom Flow
 
 1. **Host creates a room** via the client → API stores room & password
 2. **Participants join** using Room GUID & password → API validates credentials
@@ -112,7 +112,7 @@ dotnet run
 
 ---
 
-## 🔐 Encryption Details
+## Encryption Details
 
 - **Key Generation:**  
   Each user generates their own RSA 2048 key pair on joining.
@@ -151,14 +151,14 @@ dotnet run
 
 ---
 
-## 🧩 Potential Extensions
+## Potential Extensions
 
 - AES session keys for performance (RSA for exchange only)
 - Web or mobile client
 
 ---
 
-## 🧑‍💻 Contributing
+## Contributing
 
 Pull requests are welcome! If you’d like to contribute:
 1. Fork this repository
@@ -169,13 +169,13 @@ Pull requests are welcome! If you’d like to contribute:
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the MIT License.  
 See the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🙋‍♂️ Author
+##  Author
 
 Created by [Ribhav Malhotra](https://github.com/ribhav1)
