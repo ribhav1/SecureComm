@@ -151,13 +151,6 @@ dotnet run
 
 ---
 
-## Potential Extensions
-
-- AES session keys for performance (RSA for exchange only)
-- Web or mobile client
-
----
-
 ## Contributing
 
 Pull requests are welcome! If you’d like to contribute:
